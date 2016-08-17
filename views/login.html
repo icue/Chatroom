@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/chat.css">
+</head>
+<body>
+    <form class="col-sm-offset-4 col-sm-4 form-horizontal" method="post" onsubmit="return false">
+        <fieldset class="mt10">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <p class="login">Chatroom</p>
+                </div>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Your name" required>
+                <button type="submit" class="btn btn-primary btn-block" id="login0">Log in</button>
+            </div>
+        </fieldset>
+    </form>
+
+    <script type="text/javascript" src="javascripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="javascripts/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function(){ 
+        $("#login0").click(function(){ 
+            var username = $("#username").val();
+            var data = {"uname":username};
+            $.ajax({ 
+                url:'/login',
+                type:'post',
+                data: data,
+                success: function(data,status){ 
+                    if(status == 'success'){ 
+                        location.href = 'home';
+                    }
+                },
+                error: function(data,status){ 
+                    if(status == 'error'){ 
+                        location.href = 'login';
+                    }
+                }
+            });
+        });
+    });
+    </script>
+</body>
+</head>
+</html>
