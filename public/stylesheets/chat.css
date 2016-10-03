@@ -1,6 +1,7 @@
 body { padding: 0 50px 50px 50px;}
 table{ width:100%;}
 
+.chatbody { padding: 0 50px 50px 50px;}
 .mt10{ margin-top: 10px;}
 .btn-logout{ margin-right: 0;}
 .big{ font-size: 25px;}
